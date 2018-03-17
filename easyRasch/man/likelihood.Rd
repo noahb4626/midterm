@@ -14,8 +14,8 @@ likelihood(raschObj = "Rasch", theta = "numeric")
 \item{theta}{A proposed value of theta_j}
 }
 \value{
-The following vectors
- \item{lik}{The calculated likelhood from Equation 2 on assignment sheet}
+The following
+ \item{likelihood}{The calculated likelhood from Equation 2 on assignment sheet}
 }
 \description{
 likelihood function

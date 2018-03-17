@@ -3,8 +3,8 @@
 #' @param raschObj An object of class Rasch
 #' @param theta A proposed value of theta_j
 #'
-#' @return The following vectors
-#'  \item{lik}{The calculated likelhood from Equation 2 on assignment sheet}
+#' @return The following
+#'  \item{likelihood}{The calculated likelhood from Equation 2 on assignment sheet}
 #' @author Noah Bardash: \email{noah.bardash@@wustl.edu}
 #' @note Likelihood function
 #' 
