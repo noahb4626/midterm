@@ -14,6 +14,6 @@
 setMethod(f = "print", "Rasch", definition = function(x){
   # return student's name & their EAP results
   # return(c(x@name, EAP(x, -6, 6)) <-- this is what should return
-  return(1) # <-- filler, testing basic framework of print function
+  return(c(x@name, 1)) # <-- filler, testing basic framework of print function
 }
 )

@@ -17,12 +17,12 @@ check(current.code) # build R package
 # Example
 
 # Rasch student creation
-test_student <- new("Rasch", name = "test", a = 1:10, y = rep(0:1, 5))
+joe <- new("Rasch", name = "Joe", a = 1:10, y = rep(0:1, 5))
 
 # Method testing
 theta_test <- 0.5
-probability(test_student, theta_test)
-likelihood(test_student, theta_test)
-prior(theta_test)
-EAP(test_student, -6, 6)
-print(test_student)
+probability(joe, theta_test) # returns two vectors concatenated, P_ij & PQ, probability of answering a given question correctly/incorrectly
+likelihood(joe, theta_test) # likelihood of proposed theta given test responses
+prior(theta_test) # normal distribution of likelihoods for given a theta
+EAP(joe, -6, 6) # expected a posteriori value
+print(joe) # prints a student's name and their associated expected a posteriori value for a test
