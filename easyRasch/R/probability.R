@@ -21,15 +21,15 @@ setGeneric(name = "probability", def = function(raschObj = "Rasch", theta = "num
 #' @export
 setMethod(f = "probability", definition = function(raschObj, theta){
   # P_ij vector
-  num <- exp(theta - raschObj.a)
-  denom <- 1 + exp(theta - raschObj.a)
+  num <- exp(theta - raschObj@a)
+  denom <- 1 + exp(theta - raschObj@a)
   P_ij <- num/denom
   # PQ vector
   PQ <- c()
-  for(i in 1:length(raschObj.y)) {
-    num2 <- exp(theta - raschObj.a[i])
-    denom2 <- 1 + exp(theta - raschObj.a[i])
-    if(raschObj.y[i] == 1) {
+  for(i in 1:length(raschObj@y)) {
+    num2 <- exp(theta - raschObj@a[i])
+    denom2 <- 1 + exp(theta - raschObj@a[i])
+    if(raschObj@y[i] == 1) {
       PQ[i] <- num2/denom2
     }
     else {

@@ -13,7 +13,7 @@
 #' @export
 setClass(Class="Rasch", 
          representation = representation(
-           name = "String",
+           name = "character",
            a = "numeric",
            y = "numeric"
          ),
