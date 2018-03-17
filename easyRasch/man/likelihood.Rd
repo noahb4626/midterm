@@ -15,7 +15,7 @@ likelihood(raschObj = "Rasch", theta = "numeric")
 }
 \value{
 The following
- \item{likelihood}{The calculated likelhood from Equation 2 on assignment sheet}
+ \item{likelihood}{The calculated likelihood from Equation 2 on assignment sheet}
 }
 \description{
 likelihood function

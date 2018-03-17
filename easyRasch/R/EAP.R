@@ -5,7 +5,7 @@
 #' @param upper Upper limit of integration
 #'
 #' @return The following value
-#'  \item{theta_hat_j}{The calculated EAP from Equation 3 on assignment sheet}
+#'  \item{theta_hat_j}{The calculated expected a posteriori from Equation 3 on assignment sheet}
 #' @author Noah Bardash: \email{noah.bardash@@wustl.edu}
 #' @note EAP function
 #' 
@@ -17,13 +17,16 @@
 setGeneric(name = "EAP", def = function(raschObj = "Rasch", lower = "numeric", upper = "numeric") {
   standardGeneric("EAP")
 })
-?integrate
+
 #' @export
-setMethod(f = "EAP", definition = function(raschObj, lower, upper){
-  num_integrand <- raschObj@theta*likelihood(raschObj, raschObj@theta)*prior(raschObj@theta)
-  num <- integrate(num_integrand, lower, upper)
-  denom_integrand <- likelihood(raschObj, raschObj@theta)*prior(raschObj@theta)
-  denom <- integrate(denom_integrand, lower, upper)
+setMethod(f = "EAP", definition = function(raschObj, lower = -6, upper = 6){
+  theta_val = 0.7
+  num_integrand <- function(theta) {
+    return((theta)*(likelihood(raschObj, theta))*(prior(theta))) }
+  num <- integrate(num_integrand(theta_val), lower, upper)
+  denom_integrand <- function(theta) {
+    return(likelihood(raschObj, theta))*(prior(theta)) }
+  denom <- integrate(denom_integrand(theta_val), lower, upper)
   return(num/denom)
 }
 )

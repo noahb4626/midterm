@@ -12,3 +12,7 @@ RoxygenNote: 6.0.1
 Collate:
 	'Rasch.R'
 	'probability.R'
+	'likelihood.R'
+	'prior.R'
+	'EAP.R'
+	'print.R'
