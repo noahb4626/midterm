@@ -12,7 +12,7 @@
 #' @rdname probability
 #' @aliases probability, ANY-method
 
-# create generic integrateIt method
+# create generic probability method
 #' @export
 setGeneric(name = "probability", def = function(raschObj = "Rasch", theta = "numeric") {
   standardGeneric("probability")
