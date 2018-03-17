@@ -7,7 +7,7 @@ devtools::create("easyRasch") # implement devtools
 
 # Build skeleton (4)
 setwd("/Users/noahbardash/Documents/Github/midterm")
-package.skeleton()
+package.skeleton() # do not do this again!
 
 # Load code (5)
 current.code <- as.package("easyRasch") # set easyRasch package as current code
@@ -19,9 +19,10 @@ check(current.code) # build R package
 
 # Example (3)
 
-test_student <- new("Rasch", name = "test", a <- 1:10, y <- rep(0:1, 5))
+test_student <- new("Rasch")
+test_student@name <- "Test"
+test_student@a <- 1:10
+test_student@y <- rep(0:1, 5)
 theta_test <- 0.5
-raschObj.a_test <- 1:10
-raschObj.y_test <- rep(0:1, 5)
-probability(raschObj.a_test, raschObj.y_test, theta_test)
+probability(test_student, theta_test)
 
