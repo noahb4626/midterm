@@ -2,7 +2,9 @@
 
 export()
 export(EAP)
+export(denom_integrand)
 export(likelihood)
+export(num_integrand)
 export(prior)
 export(probability)
 exportClasses(Rasch)

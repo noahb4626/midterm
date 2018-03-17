@@ -14,19 +14,32 @@
 
 # create generic EAP method
 #' @export
-setGeneric(name = "EAP", def = function(raschObj = "Rasch", lower = "numeric", upper = "numeric") {
+setGeneric(name = "EAP", def = function(raschObj = "Rasch", lower = -6, upper = 6) {
   standardGeneric("EAP")
 })
 
+# create generic num_integrand method
 #' @export
-setMethod(f = "EAP", definition = function(raschObj, lower = -6, upper = 6){
-  num_integrand <- function(theta) {
-    return((theta)*(likelihood(raschObj, theta))*(prior(theta))) }
-  theta_val <- 0.7
-  num <- integrate(num_integrand(theta_val), lower, upper)
-  denom_integrand <- function(theta) {
-    return(likelihood(raschObj, theta))*(prior(theta)) }
-  denom <- integrate(denom_integrand(theta_val), lower, upper)
+setGeneric(name = "num_integrand", def = function(theta = "numeric") {
+  standardGeneric("num_integrand")
+})
+
+# create generic denom_integrand method
+#' @export
+setGeneric(name = "denom_integrand", def = function(theta = "numeric") {
+  standardGeneric("denom_integrand")
+})
+
+#' @export
+setMethod(f = "EAP", definition = function(raschObj, lower, upper){
+  # numerator calculations
+  setMethod(f = "num_integrand", definition = function(theta) {
+    return((theta)*(likelihood(raschObj, theta))*(prior(theta))) })
+  num <- integrate(num_integrand(0.5), lower, upper)
+  # denominator calculations
+  setMethod(f = "denom_integrand", definition = function(theta) {
+    return((likelihood(raschObj, theta))*(prior(theta))) })
+  denom <- integrate(denom_integrand(0.5), lower, upper)
   return(num)
 }
 )

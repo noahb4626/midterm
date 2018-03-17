@@ -6,7 +6,7 @@
 \alias{ANY-method}
 \title{EAP function}
 \usage{
-EAP(raschObj = "Rasch", lower = "numeric", upper = "numeric")
+EAP(raschObj = "Rasch", lower = -6, upper = 6)
 }
 \arguments{
 \item{raschObj}{An object of class Rasch}

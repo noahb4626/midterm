@@ -38,6 +38,6 @@ setMethod(f = "probability", definition = function(raschObj, theta){
       PQ[i] <- 1 - (num2/denom2)
     }
   }
-  return(c(P_ij, PQ)) # probability vector of answering questions correctly: first half is P_ij, then
+  return(c(P_ij, PQ)) # probability vector of answering questions correctly: first half of vector is P_ij, then PQ
 }
 )
