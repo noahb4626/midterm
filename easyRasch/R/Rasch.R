@@ -1,8 +1,5 @@
 #' A student who has taken a test
 #' 
-#' Objects of class \code{Rasch} are created by the \code{poisson.lik} function
-#'
-#' 
 #' An object of the class 'Rasch' has the following slots:
 #' \itemize{
 #' \item \code{name} The name of the test taker
@@ -26,6 +23,14 @@ setClass(Class="Rasch",
            y = c()
          )
 )
+
+#' @export
+setValidity("Rasch", function(object){
+  # ensure question-item difficulty vector has the same length as answer vector
+  if(length(object@a) != length(object@y)){return("a & y vectors must have the same length.")}
+}
+)
+
 #' @export
 setMethod("initialize", "Rasch", 
           function(.Object, ...){
