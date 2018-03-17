@@ -20,7 +20,8 @@ setGeneric(name = "likelihood", def = function(raschObj = "Rasch", theta = "nume
 #' @export
 setMethod(f = "likelihood", definition = function(raschObj, theta){
   PQ_result <- probability(raschObj, theta) # use probability to function to obtain required values
-  PQ_result <- tail(PQ_result,length(PQ_result)/2) # we only care about the PQ vector from probability function, not the first half
-  return(prod(PQ_result))
+  PQ_result <- PQ_result[2]
+  #PQ_result <- tail(PQ_result,length(PQ_result)/2) # we only care about the PQ vector from probability function, not the first half
+  return(prod(PQ_result)) # return product of PQ vector
 }
 )

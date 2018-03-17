@@ -18,7 +18,7 @@ setGeneric(name = "prior", def = function(theta = "numeric") {
 
 #' @export
 setMethod(f = "prior", definition = function(theta){
-  height <- dnorm(x = theta, mean = 0, sd = 3, log = FALSE)
+  height <- dnorm(x = theta, mean = 0, sd = 3, log = FALSE) # return height of normal curve evaluated at theta_j
   return(height)
 }
 )

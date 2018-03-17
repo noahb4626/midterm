@@ -29,7 +29,7 @@ setValidity("Rasch", function(object){
   # ensure question-item difficulty vector has the same length as answer vector
   if(length(object@a) != length(object@y)){return("a & y vectors must have the same length.")}
   # ensure all values in y are either 0 or 1
-  if(object@y != 0 & object@y != 1){return("All values in y vector must be 0 or 1.")}
+  if(!all(object@y == 0 | object@y == 1)){return("All values in y vector must be 0 or 1.")}
 }
 )
 

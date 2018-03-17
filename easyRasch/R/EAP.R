@@ -20,13 +20,13 @@ setGeneric(name = "EAP", def = function(raschObj = "Rasch", lower = "numeric", u
 
 #' @export
 setMethod(f = "EAP", definition = function(raschObj, lower = -6, upper = 6){
-  theta_val = 0.7
   num_integrand <- function(theta) {
     return((theta)*(likelihood(raschObj, theta))*(prior(theta))) }
+  theta_val <- 0.7
   num <- integrate(num_integrand(theta_val), lower, upper)
   denom_integrand <- function(theta) {
     return(likelihood(raschObj, theta))*(prior(theta)) }
   denom <- integrate(denom_integrand(theta_val), lower, upper)
-  return(num/denom)
+  return(num)
 }
 )
