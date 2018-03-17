@@ -4,7 +4,7 @@
 #' @param theta A proposed value of theta_j
 #'
 #' @return The following
-#'  \item{likelihood}{The calculated likelhood from Equation 2 on assignment sheet}
+#'  \item{likelihood}{The calculated likelihood from Equation 2 on assignment sheet}
 #' @author Noah Bardash: \email{noah.bardash@@wustl.edu}
 #' @note Likelihood function
 #' 
